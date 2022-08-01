@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/movies.css";
+
 import { Link, useParams } from "react-router-dom";
 
 import { useState, useEffect } from "react";
@@ -31,9 +32,9 @@ export default function Movies() {
 
   return (
     <>
-      <header>
+      <div className="top">
         <h2>Selecione o filme</h2>
-      </header>
+      </div>
       <div className="movies">
         <div className="container">
           <div className="images">

@@ -12,16 +12,21 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-header {
+.top {
+  margin-top: 55px;
   display: flex;
-  width: 374px;
+  width: 100%;
   height: 110px;
   align-items: center;
   justify-content: center;
 }
-.h2 {
+.top h2 {
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
 }

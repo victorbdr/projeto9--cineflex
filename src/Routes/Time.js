@@ -1,21 +1,9 @@
 import React from "react";
+import "./css/time.css";
+import Footer from "./Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-
-/* function Hour(props) {
-  return (
-    <div className="session">
-      {props.id}
-      <div className="days">
-        {props.weekday} - {props.date}
-        <div className="time">
-          <div className="text">{props.showtimes}</div>
-        </div>
-      </div>
-    </div>
-  );
-} */
 
 export default function Time() {
   const { idMovie } = useParams();
@@ -34,6 +22,9 @@ export default function Time() {
 
   return (
     <>
+      <div className="top">
+        <h2>Selecione o horário</h2>
+      </div>
       <div className="movies">
         {session.days.map(({ id, weekday, date, showtimes }) => (
           <div className="Movies" key={id}>
@@ -46,6 +37,7 @@ export default function Time() {
                       <button className="movietime">{name}</button>
                     </Link>
                   ))}
+                  <Footer url={session.posterURL} title={session.title} />
                 </div>
               </div>
             </div>

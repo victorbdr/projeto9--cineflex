@@ -1,0 +1,45 @@
+.endInfo {
+  margin-top: 60px;
+  width: 374px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.endInfo h5 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #247a6b;
+}
+.endInfo h4 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: #293845;
+}
+.endInfo p {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+}
+.backButton {
+  margin-left: 30px;
+  width: 225px;
+  height: 42px;
+  background: #e8833a;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

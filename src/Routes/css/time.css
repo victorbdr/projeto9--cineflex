@@ -1,0 +1,28 @@
+.movietime {
+  width: 83px;
+  height: 43px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  background: #e8833a;
+  border-radius: 3px;
+  margin: 22px 5px;
+  color: #ffff;
+}
+.days {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #293845;
+}
+.top h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
