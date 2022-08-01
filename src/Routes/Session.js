@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function Session() {
-  const [movie, setMovie] = useState();
   const [cpf, setCpf] = useState("");
   const [name, setName] = useState("");
   const navigate = useNavigate("");
@@ -17,7 +16,9 @@ export default function Session() {
   const { idSession } = useParams();
   const [seat, setSeat] = useState({ seats: [] });
   console.log(seat);
-
+  const url = seat.seats.movie.posterURL;
+  const weekday = seat.seats.day.weekday;
+  const date = seat.seats.day.date;
   useEffect(() => {
     const request = axios.get(
       `https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSession}/seats`
@@ -125,24 +126,8 @@ export default function Session() {
           </button>
         </div>
       </form>
-      <Footer
-      /* url={seat.movie.posterURL}
-        title={seat.movie.title}
-        weekday={seat.day.weekday}
-        date={seat.name} */
-      />
-      <div className="confirmButton">
-        {/*  <button className="confirmSelected" onClick={() => navigate({
-          movie: {
-            nome
-          },
-          tickets: selecionados,
-          buyer: {
-            name: inputdomem
-            cpf: inptudopcps
-          }
-        })}>Reservar assento(s)</button> */}
-      </div>
+      <Footer url={url} weekday={weekday} date={date} />
+      <div className="confirmButton"></div>
     </>
   );
 }
