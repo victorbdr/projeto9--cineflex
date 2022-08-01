@@ -1,44 +1,57 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
-function Hour({ idMovie, time }) {
+/* function Hour(props) {
   return (
-    <div className="date">
-      <h3>{idMovie}</h3>
-      <div className="details">
-        <div className="text">{time}</div>
+    <div className="session">
+      {props.id}
+      <div className="days">
+        {props.weekday} - {props.date}
+        <div className="time">
+          <div className="text">{props.showtimes}</div>
+        </div>
       </div>
     </div>
   );
-}
+} */
 
 export default function Time() {
   const { idMovie } = useParams();
   console.log(idMovie);
-  const [items, setItems] = useState([]);
+  const [session, setSession] = useState({ days: [] });
   useEffect(() => {
-    const promise = axios.get(
-      "https://mock-api.driven.com.br/api/v7/cineflex/movies/{idMovie}/showtimes"
+    const request = axios.get(
+      `https://mock-api.driven.com.br/api/v5/cineflex/movies/${idMovie}/showtimes`
     );
 
-    promise.then((response) => {
-      console.log(promise);
-      setItems(response.data);
+    request.then((response) => {
+      setSession(response.data);
+      console.log(response);
     });
-  });
+  }, []);
 
   return (
-    <div className="movies">
-      <div className="container">
-        <div className="images">
-          {items.map((item) => (
-            <Hour key={item.id} url={item.time} name={item.title} />
-          ))}
-        </div>
+    <>
+      <div className="movies">
+        {session.days.map(({ id, weekday, date, showtimes }) => (
+          <div className="Movies" key={id}>
+            <div className="session">
+              <div className="days">
+                {weekday} - {date}
+                <div className="time">
+                  {showtimes.map(({ id, name }) => (
+                    <Link to={`/session/${id}`} key={id}>
+                      <button className="movietime">{name}</button>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
+    </>
   );
 }
