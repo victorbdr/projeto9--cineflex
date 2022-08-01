@@ -127,7 +127,6 @@ export default function Session() {
         </div>
       </form>
       <Footer url={url} weekday={weekday} date={date} />
-      <div className="confirmButton"></div>
     </>
   );
 }
