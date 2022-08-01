@@ -16,9 +16,7 @@ export default function Session() {
   const { idSession } = useParams();
   const [seat, setSeat] = useState({ seats: [] });
   console.log(seat);
-  const url = seat.seats.movie.posterURL;
-  const weekday = seat.seats.day.weekday;
-  const date = seat.seats.day.date;
+
   useEffect(() => {
     const request = axios.get(
       `https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSession}/seats`
@@ -126,7 +124,13 @@ export default function Session() {
           </button>
         </div>
       </form>
-      <Footer url={url} weekday={weekday} date={date} />
+      <Footer
+        url={seat?.movie?.posterURL}
+        title={seat?.movie?.title}
+        time={seat?.name}
+        weekday={seat?.day?.weekday}
+        date={seat?.day?.date}
+      />
     </>
   );
 }
